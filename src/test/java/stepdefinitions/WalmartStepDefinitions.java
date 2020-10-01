@@ -20,8 +20,6 @@ public class WalmartStepDefinitions {
     public void sonuc_sayisini_ekrana_yazdirirr() {
         System.out.println( walmartPage.sonucText.getText());
 
-
-
     }
 
 

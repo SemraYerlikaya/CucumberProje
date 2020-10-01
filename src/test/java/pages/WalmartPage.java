@@ -17,12 +17,13 @@ Scenario Outline oluşturalım.
  Examples: bölümüne calculator, watch, flower verilerini(3 tane) ekleyelim.
  */
         public WalmartPage(){
+
             PageFactory.initElements(Driver.getDriver() , this);
         }
         @FindBy( id = "global-search-input" )
         public WebElement aramaKutusu;
 
-    @FindBy(className = "result-summary-container" )
+    @FindBy(xpath =  "//div[@class='result-summary-container']" )
     public WebElement sonucText;
     }
 

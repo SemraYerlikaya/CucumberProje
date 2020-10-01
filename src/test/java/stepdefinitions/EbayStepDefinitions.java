@@ -15,7 +15,6 @@ public class EbayStepDefinitions {
         Driver.getDriver().get(string);
 
     }
-
     @Given("kullanici aramaKutusuna {string} yazar ve arar")
     public void kullanici_aramaKutusuna_yazar_ve_arar(String string) {
       ebayPage.aramaKutusu.sendKeys(string+ Keys.ENTER);

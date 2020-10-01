@@ -1,189 +1,101 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/walmart.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/koalapalace.feature");
 formatter.feature({
-  "name": "Walmart Birden Fazla Arama",
+  "name": "Koala Palace",
   "description": "",
   "keyword": "Feature",
   "tags": [
     {
-      "name": "@walmart"
+      "name": "@koalapalace"
     }
   ]
 });
-formatter.scenarioOutline({
-  "name": "TC08 kullanici walmart ta urun arar",
+formatter.background({
+  "name": "Koala Palace Admin Giris",
   "description": "",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "name": "kullanici \"http://walmart.com\" sayfasina gider",
-  "keyword": "Given "
-});
-formatter.step({
-  "name": "kullanici aramaKutusuna \"\u003curunler\u003e\" yazar ve ararr",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "sonuc sayisini ekrana yazdirirr",
-  "keyword": "Then "
-});
-formatter.examples({
-  "name": "Urun isimleri",
-  "description": "",
-  "keyword": "Examples",
-  "rows": [
-    {
-      "cells": [
-        "urunler"
-      ]
-    },
-    {
-      "cells": [
-        "calculator"
-      ]
-    },
-    {
-      "cells": [
-        "watch"
-      ]
-    },
-    {
-      "cells": [
-        "flower"
-      ]
-    }
-  ]
-});
-formatter.scenario({
-  "name": "TC08 kullanici walmart ta urun arar",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@walmart"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "kullanici \"http://walmart.com\" sayfasina gider",
+  "name": "kullanici koalapalace admin sayfasina gider",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "stepdefinitions.EbayStepDefinitions.kullanici_sayfaya_gider(java.lang.String)"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_koalapalace_admin_sayfasina_gider()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "kullanici aramaKutusuna \"calculator\" yazar ve ararr",
+  "name": "kullanici kullaniciadi ve sifresini girer",
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefinitions.WalmartStepDefinitions.kullanici_aramaKutusuna_yazar_ve_ararr(java.lang.String)"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_kullaniciadi_ve_sifresini_girer()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "sonuc sayisini ekrana yazdirirr",
+  "name": "kullanici giris islemini gerceklestirir",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "stepdefinitions.WalmartStepDefinitions.sonuc_sayisini_ekrana_yazdirirr()"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_giris_islemini_gerceklestirir()"
 });
 formatter.result({
-  "status": "passed"
-});
-formatter.after({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "TC08 kullanici walmart ta urun arar",
+  "name": "TC26_kullanici hotelreservationlist sayfasinda verileri girerek reservation arar",
   "description": "",
-  "keyword": "Scenario Outline",
+  "keyword": "Scenario",
   "tags": [
     {
-      "name": "@walmart"
+      "name": "@koalapalace"
+    },
+    {
+      "name": "@hotelreservationsearch"
     }
   ]
 });
-formatter.before({
-  "status": "passed"
-});
 formatter.step({
-  "name": "kullanici \"http://walmart.com\" sayfasina gider",
+  "name": "kullanici hotelroomreservationlist sayfasina gider",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "stepdefinitions.EbayStepDefinitions.kullanici_sayfaya_gider(java.lang.String)"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_hotelroomreservationlist_sayfasina_gider()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "kullanici aramaKutusuna \"watch\" yazar ve ararr",
+  "name": "kullanici hotelroomreservationlist hotelroomid bolumunde \"team06\" secer",
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefinitions.WalmartStepDefinitions.kullanici_aramaKutusuna_yazar_ve_ararr(java.lang.String)"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_hotelroomreservationlist_hotelroomid_bolumunde_secer(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "sonuc sayisini ekrana yazdirirr",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "stepdefinitions.WalmartStepDefinitions.sonuc_sayisini_ekrana_yazdirirr()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "TC08 kullanici walmart ta urun arar",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@walmart"
-    }
-  ]
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.step({
-  "name": "kullanici \"http://walmart.com\" sayfasina gider",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "stepdefinitions.EbayStepDefinitions.kullanici_sayfaya_gider(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "kullanici aramaKutusuna \"flower\" yazar ve ararr",
+  "name": "kullanici hotelroomreservationlist arama kutusuna tiklar",
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefinitions.WalmartStepDefinitions.kullanici_aramaKutusuna_yazar_ve_ararr(java.lang.String)"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_hotelroomreservationlist_arama_kutusuna_tiklar()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "sonuc sayisini ekrana yazdirirr",
+  "name": "kullanici hotelroomreservationlist kayitlarini inceler",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "stepdefinitions.WalmartStepDefinitions.sonuc_sayisini_ekrana_yazdirirr()"
+  "location": "stepdefinitions.KoalaPalaceStepDef.kullanici_hotelroomreservationlist_kayitlarini_inceler()"
 });
 formatter.result({
   "status": "passed"

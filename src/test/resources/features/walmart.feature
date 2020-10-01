@@ -7,6 +7,7 @@ Feature: Walmart Birden Fazla Arama
     #bunu ebay den alacak o yuzden stepdefinitions daki class a yazmaya gerek yok
     And kullanici aramaKutusuna "<urunler>" yazar ve ararr
     Then sonuc sayisini ekrana yazdirirr
+    Then driveri kapatir
     Examples:Urun isimleri
       |urunler|
       |calculator|
