@@ -310,3 +310,24 @@ Feature: Koala Palace
     And kullanici hotelroomreservationlist hotelroomid bolumunde "team06" secer
     And kullanici hotelroomreservationlist arama kutusuna tiklar
     Then kullanici hotelroomreservationlist kayitlarini inceler
+
+  @hoteledit
+  Scenario: TC27_kullanici hoteledit sayfasinda verileri girerek hotel bilgilerini gunceller
+    Given kullanici hoteledit "http://www.kaolapalace-qa-environment2.com/admin/HotelAdmin/Edit?Id=4" sayfasina gider
+    And kullanici hoteledit code bolumunu "999" ile gunceller
+    And kullanici hoteledit name bolumunu "sonDers" ile gunceller
+    And kullanici hoteledit adress bolumunu "Cikmaz sk." ile gunceller
+    And kullanici hoteledit phone bolumunu "0123456789" ile gunceller
+    And kullanici hoteledit mail bolumunu "sonders@son.com" ile gunceller
+    And kullanici hoteledit save butonuna tiklar
+    Then kullanici hoteledit "Hotel was updated successfully" yazisini dogrular
+
+  @hotelroomedit
+  Scenario: TC28_kullanici hotelroomedit sayfasinda properties bolumundeki veriyi siler
+    Given kullanici hotelroomedit "http://www.kaolapalace-qa-environment2.com/admin/HotelRoomAdmin/Edit?Id=472" sayfasina gider
+    And kullanici hotelroomedit sayfasinda properties bolumune tiklar
+    And kullanici hotelroomedit sayfasinda tip olarak "room prop1" secer
+    And kullanici hotelroomedit sayfasinda code olarak "4444" girer
+    And kullanici hotelroomedit sayfasinda value olarak "sistem bozuldu" girer
+    And kullanici hotelroomedit sayfasinda save butonuna tiklar
+    Then kullanici hotelroomedit sayfasinda properties bolumunde yeni kayit oldugunu assert eder

@@ -12,6 +12,7 @@ public class GoogleAramaStepDefinitions {
     public void kullanici_google_sayfasina_gider() {
         Driver.getDriver().get(ConfigurationReader.getProperty("google_link"));
         // bu bize .properties dosyasının içerisindeki google linkini getirecek.
+
     }
     @Given("techproeducation aramasi yapar")
     public void techproeducation_aramasi_yapar() {

@@ -2,9 +2,13 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.KoalaPalacePage;
 import utilities.Driver;
 
@@ -343,6 +347,87 @@ public class KoalaPalaceStepDef {
 
 
     }
+    @Given("kullanici hoteledit {string} sayfasina gider")
+    public void kullanici_hoteledit_sayfasina_gider(String string) {
+        Driver.getDriver().get(string);
+    }
 
+    @Given("kullanici hoteledit code bolumunu {string} ile gunceller")
+    public void kullanici_hoteledit_code_bolumunu_ile_gunceller(String string) {
+        page.hotelDataCodeKutusu.clear();
+        page.hotelDataCodeKutusu.sendKeys(string);
+    }
 
+    @Given("kullanici hoteledit name bolumunu {string} ile gunceller")
+    public void kullanici_hoteledit_name_bolumunu_ile_gunceller(String string) {
+        page.hotelDataNameKutusu.clear();
+        page.hotelDataNameKutusu.sendKeys(string);
+    }
+
+    @Given("kullanici hoteledit adress bolumunu {string} ile gunceller")
+    public void kullanici_hoteledit_adress_bolumunu_ile_gunceller(String string) {
+        page.hotelDataAddressKutusu.clear();
+        page.hotelDataAddressKutusu.sendKeys(string);
+    }
+
+    @Given("kullanici hoteledit phone bolumunu {string} ile gunceller")
+    public void kullanici_hoteledit_phone_bolumunu_ile_gunceller(String string) {
+        page.hotelDataPhoneKutusu.clear();
+        page.hotelDataPhoneKutusu.sendKeys(string);
+    }
+
+    @Given("kullanici hoteledit mail bolumunu {string} ile gunceller")
+    public void kullanici_hoteledit_mail_bolumunu_ile_gunceller(String string) {
+        page.hotelDataEmailKutusu.clear();
+        page.hotelDataEmailKutusu.sendKeys(string);
+    }
+
+    @Given("kullanici hoteledit save butonuna tiklar")
+    public void kullanici_hoteledit_save_butonuna_tiklar() {
+
+        page.hotelDataSaveButonu.click();
+    }
+
+    @Then("kullanici hoteledit {string} yazisini dogrular")
+    public void kullanici_hoteledit_yazisini_dogrular(String string) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),20);
+        boolean yaziDogruMu = wait.until(ExpectedConditions.textToBe(By.className("bootbox-body") , "Hotel was updated successfully"));
+        Assert.assertTrue(yaziDogruMu);
+    }
+
+    @Given("kullanici hotelroomedit {string} sayfasina gider")
+    public void kullanici_hotelroomedit_sayfasina_gider(String string) {
+        Driver.getDriver().get(string);
+    }
+    @Given("kullanici hotelroomedit sayfasinda properties bolumune tiklar")
+    public void kullanici_hotelroomedit_sayfasinda_properties_bolumune_tiklar() {
+        page.hotelRoomEditPropertiesLinki.click();
+    }
+    @Given("kullanici hotelroomedit sayfasinda tip olarak {string} secer")
+    public void kullanici_hotelroomedit_sayfasinda_tip_olarak_secer(String string) {
+        Select select = new Select(page.hotelRoomEditPropertiesTipDropdown);
+        select.selectByVisibleText(string);
+    }
+    @Given("kullanici hotelroomedit sayfasinda code olarak {string} girer")
+    public void kullanici_hotelroomedit_sayfasinda_code_olarak_girer(String string) {
+        page.hotelRoomEditPropertiesCodeKutusu.sendKeys(string);
+    }
+    @Given("kullanici hotelroomedit sayfasinda value olarak {string} girer")
+    public void kullanici_hotelroomedit_sayfasinda_value_olarak_girer(String string) {
+        page.hotelRoomEditPropertiesValueKutusu.sendKeys(string);
+    }
+    @Given("kullanici hotelroomedit sayfasinda save butonuna tiklar")
+    public void kullanici_hotelroomedit_sayfasinda_save_butonuna_tiklar() {
+        page.hotelRoomEditPropertiesSaveButonu.click();
+    }
+    @Then("kullanici hotelroomedit sayfasinda properties bolumunde yeni kayit oldugunu assert eder")
+    public void kullanici_hotelroomedit_sayfasinda_properties_bolumunde_yeni_kayit_oldugunu_assert_eder() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        boolean gorunuyorMu = page.hotelRoomEditPropertiesIlkKayitRemoveButonu.isDisplayed();
+        Assert.assertTrue(gorunuyorMu);
+    }
 }
